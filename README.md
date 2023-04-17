@@ -1,16 +1,19 @@
 # hello-redis
 
-This application returns a greeting and a counter of requests (e.g. "Hello world 5!" and "Hello sunshine 3!").
-
-- A default greeting can be defined at startup using the environment variable HELLO_MSG (default value is "world")
-- The greeting can also be modified dynamically per request using the request path (e.g. curl localhost:8080/sunshine)
-
-The counter tracks requests per greeting message (_world_, _sunshine_, etc) and is stored in Redis.
-
-A sample response looks like this:
+This application returns a greeting and a counter of requests for that greeting.
+Example requests/responses may look like this:
 ```
+$ http -b :8080
+<h1>Hello world 5!</h1>
+
+$ http -b :8080/sunshine
 <h1>Hello sunshine 6!</h1>
 ```
+
+- The default greeting is world and can be changed at startup using the environment variable HELLO_MSG 
+- The greeting can also be modified dynamically per request using the request path (e.g. curl localhost:8080/sunshine)
+
+The counter is stored in Redis using the greeting message as the key (_world=5_, _sunshine=6_, etc).
 
 ## Run locally
 
