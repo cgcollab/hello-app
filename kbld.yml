@@ -13,5 +13,5 @@ sources:
 #! publish (push) image
 destinations:
   - image: hello-app
-    newImage: taplab.azurecr.io/packaging-demo/hello-app
+    newImage: localhost:5001/packaging-demo/hello-app
     tags: [latest]
