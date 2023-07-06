@@ -1,4 +1,3 @@
-
 image: hello-app
 ---
 apiVersion: kbld.k14s.io/v1alpha1
@@ -6,7 +5,7 @@ kind: Config
 #! build image
 sources:
   - image: hello-app
-    path: tmp/src/hello-app
+    path: .
     pack:
       build:
         builder: paketobuildpacks/builder
@@ -14,4 +13,4 @@ sources:
 destinations:
   - image: hello-app
     newImage: localhost:5001/packaging-demo/hello-app
-    tags: [latest]
+    tags: [latest, 1.2.3]
